@@ -80,7 +80,8 @@ DATASET_OUTS = $(AFFYMETRIX_OUT) $(DRUGBANK_OUT) $(LMDB_OUT) $(JAMENDO_OUT) $(NY
 # Full pipeline: build tooling, generate every cleaned dataset into
 # $(DATASET_DIR), clean the expected query results into $(RESULTS_DIR), then
 # write the reports (triple-count conservation + fix tallies).
-pipeline: initialize-benchmark build-merge-clean generate-clean-dataset validate-clean-dataset generate-hdt validate-comunica generate-clean-results validate-clean-results audit-queries report clean-download normalize-nt
+pipeline: initialize-benchmark generate-hdt validate-comunica generate-clean-results validate-clean-results audit-queries report normalize-nt
+#pipeline: initialize-benchmark build-merge-clean generate-clean-dataset validate-clean-dataset generate-hdt validate-comunica generate-clean-results validate-clean-results audit-queries report clean-download normalize-nt
 
 initialize-benchmark: download-datasets extract-datasets
 download-datasets: .download-dataset-stamp
